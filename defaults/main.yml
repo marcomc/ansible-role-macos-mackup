@@ -1,0 +1,7 @@
+---
+mackup_action: backup # backup, restore, restore-only, uninstall
+mackup_engine: dropbox # dropbox, google_drive, icloud, copy, file_system
+mackup_path: "" # path to the directory that contains the 'mackup_directory' only IF the selected engine is 'file_system'
+mackup_directory: "Mackup" # name of the mackup backup directory
+mackup_applications_to_ignore: [] # list of application to be ignored when backing up or restoring with mackup
+...

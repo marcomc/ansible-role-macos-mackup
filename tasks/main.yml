@@ -1,0 +1,13 @@
+- name: FATAL
+  fail: msg="This role is only compatible with macOS"
+  when: ansible_facts['os_family'] != 'Darwin'
+
+- name: Look for Mackup backup dir.
+  stat:
+    path: "{{ mackup_path | mandatory }}/{{ mackup_directory | mandatory }}"
+  register: mackup_backup_dir
+  when: mackup_engine == 'file_system'
+
+- include: mackup.yml
+  when: ( mackup_engine != 'file_system' and mackup_engine != '' ) or
+        ( mackup_engine == 'file_system' and mackup_backup_dir.stat.isdir is defined and mackup_backup_dir.stat.isdir )

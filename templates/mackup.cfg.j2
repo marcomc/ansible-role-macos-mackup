@@ -1,0 +1,11 @@
+[storage]
+engine = {{ mackup_engine }}
+
+{%if mackup_engine == 'file_system' %}
+path = {{ mackup_path }}
+{%  endif %}
+
+directory = {{ mackup_directory }}
+
+[applications_to_ignore]
+{{ mackup_applications_to_ignore }}

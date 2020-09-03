@@ -1,0 +1,34 @@
+---
+# If the user installs mackup through homebrew the path is different.
+- name: Look for Mackup.
+  command: command -v mackup
+  register: mackup_which_result
+  changed_when: false
+  ignore_errors: yes
+
+- name: Make sure Mackup is installed with Homebrew (if it is not present already).
+  homebrew:
+    name: mackup
+    state: latest
+  when: mackup_which_result.rc != 0
+
+# Mackup allows to restore dotfiles and other Sytem Preferences
+- name: Copy Mackup configuration into place.
+  template:
+    src: templates/mackup.cfg.j2
+    dest: ~/.mackup.cfg
+    mode: 0640
+  changed_when: false
+
+- name: Run Mackup action '{{ mackup_action }}'.
+  command:
+    argv:
+      - mackup
+      - --force
+      - "{{  item.command }}"
+  with_subelement:
+    - "{{ mackup_commands }}"
+    - action
+  when: item.action == mackup_action
+  changed_when: false
+  ignore_errors: yes
