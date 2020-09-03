@@ -2,4 +2,4 @@
 mackup_commands:
   - { command: 'backup', action: { 'backup' } }
   - { command: 'restore', action: { 'restore', 'restore-only'} }
-  - { command: 'uninstall', action: { 'uninstall', 'restore-only' }
+  - { command: 'uninstall', action: { 'uninstall', 'restore-only' } }
