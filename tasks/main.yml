@@ -9,5 +9,5 @@
   when: mackup_engine == 'file_system'
 
 - include: mackup.yml
-  when: ( mackup_engine != 'file_system' and mackup_engine != '' ) or
+  when: ( mackup_engine != 'file_system' and mackup_engine | length > 0 ) or
         ( mackup_engine == 'file_system' and mackup_backup_dir.stat.isdir is defined and mackup_backup_dir.stat.isdir )
