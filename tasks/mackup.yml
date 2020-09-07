@@ -9,7 +9,7 @@
 - name: Make sure Mackup is installed with Homebrew (if it is not present already).
   homebrew:
     name: mackup
-    state: latest
+    state: present
   when: mackup_which_result.rc != 0
 
 # Mackup allows to restore dotfiles and other Sytem Preferences
