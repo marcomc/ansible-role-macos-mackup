@@ -24,7 +24,7 @@ For example
           - andible
         mackup_action: restore-only
       roles:
-        - marcomc.mackup
+        - marcomc.macos_mackup
 
 ## Variables
 
