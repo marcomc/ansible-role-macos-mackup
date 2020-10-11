@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/marcomc/ansible-role-macos-mackup.svg?branch=master)](https://travis-ci.com/marcomc/ansible-role-macos-mackup)
+
 # Mackup sync utility installation
 Ansible role to install and configure the [Mackup sync utility](https://github.com/lra/mackup).
 
@@ -57,8 +59,8 @@ This role has (not yet) a travis basic test (for github) only.
 
 ## Troubleshooting & Known issues
 
-## Copyright
-Marco Massari Calderone (c) 2020
-
 ## License
-MIT
+[MIT](LICENSE)
+
+## Copyright
+Marco Massari Calderone (c) 2020 - marco@marcomc.com
