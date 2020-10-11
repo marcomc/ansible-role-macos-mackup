@@ -1,0 +1,20 @@
+---
+- hosts: local
+  tasks:
+    - add_host:
+        groups: local
+        name: "{{ lookup('env','TEST_ANSIBLE_HOSTNAME') }}"
+      changed_when: false
+
+- hosts: local
+  vars:
+    verbose: yes
+    mackup_engine: file_system
+    mackup_applications_to_ignore:
+      - ansible
+    mackup_action: backup
+    mackup_path: "/tmp"
+
+  roles:
+    - macos_mackup
+...

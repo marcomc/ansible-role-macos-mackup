@@ -23,7 +23,7 @@ For example
       vars:
         mackup_engine:: icloud
         mackup_applications_to_ignore:
-          - andible
+          - ansible
         mackup_action: restore-only
       roles:
         - marcomc.macos_mackup
